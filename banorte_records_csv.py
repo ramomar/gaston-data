@@ -38,7 +38,9 @@ fieldnames = [
     'note',
     'operation_date',
     'application_date',
+    'inbox_date',
     'raw',
+    'from',
 ]
 csv_writer = csv.DictWriter(records_csv, fieldnames=fieldnames)
 
@@ -54,7 +56,7 @@ for path in p.glob(f'*.json'):
 
         try:
             r = banorte_email.scrape(email_body)
-
+            
             if r.type is not records.ACCOUNT_OPERATION_TYPE:
                 csv_writer.writerow({
                     'type': r.type,
