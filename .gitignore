@@ -3,3 +3,5 @@
 .env
 records.csv
 failures
+period_records
+
