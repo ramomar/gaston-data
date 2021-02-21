@@ -103,9 +103,9 @@ def main():
                 with open(f'./failures/{email_id}.html', 'w') as email_file:
                     email_file.write(email_body)
 
-    for period, csv_rows in period_csv_rows.items():
+    for period, csv_rows in sorted(period_csv_rows.items(), key=lambda item: item[0]):
         print(period)
-        make_period_csv(period, csv_rows)
+        make_period_csv(period, sorted(csv_rows, key=lambda item: item['email_timestamp']))
 
 
 if __name__ == '__main__':
