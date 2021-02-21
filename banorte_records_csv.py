@@ -97,7 +97,6 @@ def main():
                     row = make_csv_row(record, email_metadata)
 
                     period_csv_rows[period].append(row)
-
             except Exception as e:
                 print(f'{email_id} - {e}')
 
