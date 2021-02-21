@@ -104,7 +104,7 @@ def main():
                     email_file.write(email_body)
 
     for period, csv_rows in sorted(period_csv_rows.items(), key=lambda item: item[0]):
-        print(period)
+        print(f'period {period} with {len(csv_rows)} records')
         make_period_csv(period, sorted(csv_rows, key=lambda item: item['email_timestamp']))
 
 
