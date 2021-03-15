@@ -33,6 +33,8 @@ def make_csv_row(record, email_metadata):
         'note': record.note,
         'operation_date': record.operation_date,
         'application_date': record.application_date if record.type == records.EXPENSE_RECORD_TYPE else None,
+        'category': None,
+        'tag': None,
         'raw': json.dumps(dataclasses.asdict(record), default=str),
     }, **email_metadata)
 
@@ -45,11 +47,13 @@ def make_period_csv(period, rows):
         'note',
         'operation_date',
         'application_date',
+        'email_date',
+        'category',
+        'tag',
         'raw',
         'email_id',
         'email_from',
         'email_timestamp',
-        'email_date',
     ]
 
     with open(f'period_records/{period}-{len(rows)}.csv', 'w', newline='') as records_csv:
