@@ -1,2 +1,2 @@
-git+ssh://git@github.com/ramomar/banes.git@v1.2.0
+git+ssh://git@github.com/ramomar/banes.git@v1.3.0
 pytz==2021.1
